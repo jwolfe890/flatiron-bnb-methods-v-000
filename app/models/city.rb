@@ -63,13 +63,17 @@ end
 collection
 end
 
-  def self.most_res
-    binding.pry
-    self.all.collect do |city|
-      city.listings.max { |a, b| a.reservations.count <=> b.reservations.count }
-      end 
-  end 
+  # def self.most_res
+  #   binding.pry
+  #   self.all.collect do |city|
+  #     city.listings.max { |a, b| a.reservations.count <=> b.reservations.count }
+  #     end 
+  # end  
 
+
+  def self.most_res
+      Listings.all.max { |a, b| a.reservations.count <=> b.reservations.count }
+  end 
 
 
 end
