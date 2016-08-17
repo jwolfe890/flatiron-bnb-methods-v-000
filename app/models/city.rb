@@ -72,8 +72,19 @@ end
 
 
   def self.most_res
-      Listings.all.max { |a, b| a.reservations.count <=> b.reservations.count }
+      value = 0
+      collection = []
+        City.all.each do |city| 
+          city.listings.each do |listing|
+            while value < listing.reservations.count
+              collection = city 
+              value = listing.reservations.count
+              value += 1
+    end
+  end
   end 
+  collection
+end 
 
 
 end
